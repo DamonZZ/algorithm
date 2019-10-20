@@ -1,4 +1,5 @@
 
-idea/
+.idea/
 target/
 algorithm.iml
+.DS_Store
