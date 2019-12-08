@@ -1,4 +1,4 @@
-package com.damon.algorithm.tree;
+package com.damon.algorithm.entity;
 
 public class Node {
 

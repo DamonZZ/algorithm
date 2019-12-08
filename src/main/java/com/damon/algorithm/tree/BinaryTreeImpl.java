@@ -1,5 +1,7 @@
 package com.damon.algorithm.tree;
 
+import com.damon.algorithm.entity.Node;
+
 public class BinaryTreeImpl implements Tree {
 
     private Node root;
