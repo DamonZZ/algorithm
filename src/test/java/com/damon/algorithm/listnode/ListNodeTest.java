@@ -62,4 +62,69 @@ public class ListNodeTest {
         Assert.assertEquals(expected.getData(), result.getData());
     }
 
+    @Test
+    public void mergeTest() {
+        Node testNode1 = null;
+        Node testNode2 = null;
+        Node expected = null;
+
+        Node result = this.listNode.merge(testNode1, testNode2);
+        Assert.assertEquals(expected, result);
+
+        testNode1 = new Node(1);
+        Node testNode1Child1 = new Node(3);
+        Node testNode1Child2 = new Node(5);
+        testNode1Child1.setLeftChild(testNode1Child2);
+        testNode1.setLeftChild(testNode1Child1);
+
+        testNode2 = new Node(2);
+        Node testNode2Child1 = new Node(4);
+        Node testNode2Child2 = new Node(6);
+        testNode2Child1.setLeftChild(testNode2Child2);
+        testNode2.setLeftChild(testNode2Child1);
+
+        result = this.listNode.merge(testNode1, testNode2);
+        String strResult = "";
+        while (result != null) {
+            strResult += result.getData();
+            result = result.getLeftChild();
+        }
+
+        String strExpected = "123456";
+
+        Assert.assertEquals(strExpected, strResult);
+    }
+
+    @Test
+    public void hasSubTreeTest() {
+        Node testNode1 = null;
+        Node testNode2 = null;
+        boolean expected = false;
+
+        boolean result = this.listNode.hasSubTree(testNode1, testNode2);
+        Assert.assertEquals(expected, result);
+
+        testNode1 = new Node(1);
+        Node testNode12 = new Node(2);
+        Node testNode13 = new Node(3);
+        Node testNode14 = new Node(4);
+        Node testNode15 = new Node(5);
+
+        testNode12.setLeftChild(testNode14);
+        testNode12.setRightChild(testNode15);
+        testNode1.setLeftChild(testNode12);
+        testNode1.setRightChild(testNode13);
+
+        testNode2 = new Node(2);
+        Node testNode24 = new Node(4);
+        Node testNode25 = new Node(5);
+
+        testNode2.setLeftChild(testNode24);
+        testNode2.setRightChild(testNode25);
+
+        expected = true;
+        result = this.listNode.hasSubTree(testNode1, testNode2);
+        Assert.assertEquals(expected, result);
+    }
+
 }

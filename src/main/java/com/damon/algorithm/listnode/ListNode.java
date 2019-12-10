@@ -1,6 +1,7 @@
 package com.damon.algorithm.listnode;
 
 import com.damon.algorithm.entity.Node;
+import com.sun.scenario.effect.Merge;
 
 public class ListNode {
 
@@ -42,8 +43,70 @@ public class ListNode {
             head = nextNode;
 
         }
-
         return preNode;
+    }
+
+    public Node merge(Node node1, Node node2) {
+        if (node1 == null) {
+            return node2;
+        } else if (node2 == null) {
+            return node1;
+        }
+
+        Node result = null;
+
+        int data1 = node1.getData();
+        int data2 = node2.getData();
+
+        if (data1 < data2) {
+            result = node1;
+            result.setLeftChild(this.merge(result.getLeftChild(), node2));
+        } else {
+            result = node2;
+            result.setLeftChild(this.merge(node1, result.getLeftChild()));
+        }
+        return result;
+    }
+
+    public boolean hasSubTree(Node node1, Node node2) {
+        boolean result = false;
+
+        if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        int data1 = node1.getData();
+        int data2 = node2.getData();
+
+        if (data1 == data2) {
+            result = this.doesTree1HasTree2(node1, node2);
+        }
+
+        if (!result) {
+            result = this.hasSubTree(node1.getLeftChild(), node2);
+        }
+
+        if (!result) {
+            result = this.hasSubTree(node1.getRightChild(), node2);
+        }
+
+        return result;
+    }
+
+    private boolean doesTree1HasTree2(Node node1, Node node2) {
+        if (node2 == null) {
+            return true;
+        }
+
+        if (node1 == null) {
+            return false;
+        }
+
+        if (node1.getData() != node2.getData()) {
+            return false;
+        }
+
+        return this.doesTree1HasTree2(node1.getLeftChild(), node2.getLeftChild()) && this.doesTree1HasTree2(node1.getRightChild(), node2.getRightChild());
     }
 
 }
