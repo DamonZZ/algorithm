@@ -189,4 +189,50 @@ public class ListNodeTest {
         Assert.assertEquals(expected, strResult);
     }
 
+    @Test
+    public void findPathTest() {
+        Node testNode = null;
+        testNode = new Node(1);
+        Node testNode12 = new Node(2);
+        Node testNode13 = new Node(3);
+        Node testNode14 = new Node(4);
+        Node testNode15 = new Node(5);
+        testNode12.setLeftChild(testNode14);
+        testNode12.setRightChild(testNode15);
+        testNode.setLeftChild(testNode12);
+        testNode.setRightChild(testNode13);
+
+        ArrayList<ArrayList<Integer>> result = this.listNode.findPath(testNode, 7);
+        String expected = "1,2,4,";
+        String strResult = "";
+        Iterator<ArrayList<Integer>> iterator = result.iterator();
+        while (iterator.hasNext()) {
+            ArrayList arr = iterator.next();
+            Iterator<Integer> iterator1 = arr.iterator();
+            while (iterator1.hasNext()) {
+                strResult = strResult + iterator1.next() + ",";
+            }
+        }
+
+        Assert.assertEquals(expected, strResult);
+    }
+
+    @Test
+    public void convertTest() {
+        Node testNode = null;
+        testNode = new Node(1);
+        Node testNode12 = new Node(2);
+        Node testNode13 = new Node(3);
+        Node testNode14 = new Node(4);
+        Node testNode15 = new Node(5);
+        testNode12.setLeftChild(testNode14);
+        testNode12.setRightChild(testNode15);
+        testNode.setLeftChild(testNode12);
+        testNode.setRightChild(testNode13);
+
+        Node result = this.listNode.convert(testNode);
+
+        Assert.assertEquals(4, result.getData());
+    }
+
 }

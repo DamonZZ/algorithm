@@ -151,4 +151,71 @@ public class ListNode {
         return arrayList;
     }
 
+    public ArrayList<ArrayList<Integer>> findPath(Node root, int target) {
+        ArrayList<ArrayList<Integer>> arrs = new ArrayList<>();
+        if (root == null) {
+            return arrs;
+        }
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        int sum = 0;
+        this.findPathInChildren(sum, target, root, arrs, arr);
+        return arrs;
+    }
+
+    private void findPathInChildren(int sum, int target, Node root, ArrayList<ArrayList<Integer>> arrs, ArrayList<Integer> arr) {
+        if (root == null) {
+            return;
+        }
+
+        sum += root.getData();
+        if (root.getLeftChild() == null && root.getRightChild() == null) {
+            if (sum == target) {
+                arr.add(root.getData());
+                arrs.add(new ArrayList<Integer>(arr));
+                arr.remove(arr.size() - 1);
+            }
+            return;
+        }
+
+        arr.add(root.getData());
+        this.findPathInChildren(sum, target, root.getLeftChild(), arrs, arr);
+        this.findPathInChildren(sum, target, root.getRightChild(), arrs, arr);
+        arr.remove(arr.size() - 1);
+    }
+
+    private Node pre = null;
+
+    public Node convert(Node pRootOfTree) {
+        if (pRootOfTree == null) {
+            return null;
+        }
+
+        this.pre = null;
+        this.convertSub(pRootOfTree);
+
+        while (pRootOfTree.getLeftChild() != null) {
+            pRootOfTree = pRootOfTree.getLeftChild();
+        }
+
+        return pRootOfTree;
+    }
+
+    private void convertSub(Node current) {
+        if (current == null) {
+            return;
+        }
+
+        this.convertSub(current.getLeftChild());
+
+        current.setLeftChild(this.pre);
+        if (this.pre != null) {
+            this.pre.setRightChild(current);
+        }
+
+        this.pre = current;
+        this.convertSub(current.getRightChild());
+    }
+
+
 }

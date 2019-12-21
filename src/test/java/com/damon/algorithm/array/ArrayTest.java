@@ -71,4 +71,13 @@ public class ArrayTest {
         Assert.assertEquals(expected, strResult);
     }
 
+    @Test
+    public void moreThanHalfNumberTest() {
+        int[] testArray = new int[]{3, 1, 2, 2, 2};
+        int expected = 2;
+        int result = this.array.moreThanHalfNumber(testArray);
+        Assert.assertEquals(expected, result);
+
+    }
+
 }
