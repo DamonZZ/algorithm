@@ -80,4 +80,34 @@ public class ArrayTest {
 
     }
 
+    @Test
+    public void getLeastNumbers() {
+        int[] testArray = new int[]{3, 5, 1, 4, 2};
+        int testIndex = 3;
+        String expected = "3,1,2,";
+        String strResult = "";
+        ArrayList<Integer> result = this.array.getLeastNumbers(testArray, testIndex);
+        for (int i = 0; i < result.size(); i++) {
+            strResult += result.get(i) + ",";
+        }
+        Assert.assertEquals(expected, strResult);
+    }
+
+    @Test
+    public void findGreatestSumOfSubArrayTest() {
+        int[] testArray = new int[]{3, -5, -1, 4, 2};
+        int expected = 6;
+        int result = this.array.findGreatestSumOfSubArray(testArray);
+        Assert.assertEquals(expected, result);
+
+    }
+
+    @Test
+    public void numberOf1Between1AndNTest() {
+        int testInt = 21345;
+        int expected = 18821;
+        int result = this.array.numberOf1Between1AndN(testInt);
+        Assert.assertEquals(expected, result);
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.damon.algorithm.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Array {
 
@@ -110,5 +109,63 @@ public class Array {
         }
 
         return num;
+    }
+
+    public ArrayList<Integer> getLeastNumbers(int[] input, int k) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (input == null || input.length < 1 || k < 1 || k > input.length) {
+            return result;
+        }
+
+        PriorityQueue<Integer> maxQueue = new PriorityQueue<>(k, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        for (int i = 0; i < input.length; i++) {
+            if (maxQueue.size() != k) {
+                maxQueue.offer(input[i]);
+            } else {
+                int maxTemp = maxQueue.peek();
+                if (input[i] < maxTemp) {
+                    maxQueue.poll();
+                    maxQueue.offer(input[i]);
+                }
+            }
+        }
+        Iterator<Integer> iterator = maxQueue.iterator();
+        while (iterator.hasNext()) {
+            result.add(iterator.next());
+        }
+
+        return result;
+    }
+
+    public int findGreatestSumOfSubArray(int[] array) {
+        if (array == null || array.length < 1) {
+            return 0;
+        }
+
+        int max = array[0];
+        int res = array[0];
+        for (int i = 1; i < array.length; i++) {
+            max = Math.max(array[i], max + array[i]);
+            res = Math.max(max, res);
+        }
+        return res;
+    }
+
+    public int numberOf1Between1AndN(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int result = 0;
+        for (int i = 1; i <= n; i *= 10) {
+            int a = n / i;
+            int b = n % i;
+            result = result + (a + 8) / 10 * i + (a % 10 == 1 ? 1 : 0) * (b + 1);
+        }
+        return result;
     }
 }
