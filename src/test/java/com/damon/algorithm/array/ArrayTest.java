@@ -110,4 +110,13 @@ public class ArrayTest {
         Assert.assertEquals(expected, result);
     }
 
+    @Test
+    public void printMinNumberTest() {
+        int[] testArray = new int[]{3, 32, 321};
+        String expected = "321323";
+        String result = this.array.printMinNumber(testArray);
+        Assert.assertEquals(expected, result);
+    }
+
+
 }

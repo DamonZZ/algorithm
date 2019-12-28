@@ -168,4 +168,29 @@ public class Array {
         }
         return result;
     }
+
+    public String printMinNumber(int[] numbers) {
+        if (numbers == null || numbers.length < 1) {
+            return "";
+        }
+        String[] stringArray = new String[numbers.length];
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < numbers.length; i++) {
+            stringArray[i] = String.valueOf(numbers[i]);
+        }
+
+        Arrays.sort(stringArray, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                String c1 = o1 + o2;
+                String c2 = o2 + o1;
+                return c1.compareTo(c2);
+            }
+        });
+        for (int i = 0; i < stringArray.length; i++) {
+            builder.append(stringArray[i]);
+        }
+        return builder.toString();
+    }
 }
