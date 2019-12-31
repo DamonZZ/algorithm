@@ -35,4 +35,12 @@ public class MathReleatedTest {
         int result = this.mathReleated.firstNotRepeatingChar(strTest);
         Assert.assertEquals(expected, result);
     }
+
+    @Test
+    public void inversePairs() {
+        int[] testArray = new int[]{7, 5, 6, 4};
+        int expected = 5;
+        int result = this.mathReleated.inversePairs(testArray);
+        Assert.assertEquals(expected, result);
+    }
 }

@@ -9,18 +9,18 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ListNodeTest {
+public class NodeUsageTest {
 
-    private ListNode listNode;
+    private NodeUsage nodeUsage;
 
     @Before
     public void before() {
-        this.listNode = new ListNode();
+        this.nodeUsage = new NodeUsage();
     }
 
     @After
     public void after() {
-        this.listNode = null;
+        this.nodeUsage = null;
     }
 
     @Test
@@ -28,7 +28,7 @@ public class ListNodeTest {
         Node testNode = null;
         Node expected = null;
 
-        Node result = this.listNode.findKthFromTail(testNode, 0);
+        Node result = this.nodeUsage.findKthFromTail(testNode, 0);
         Assert.assertEquals(expected, result);
 
         testNode = new Node(1);
@@ -37,11 +37,11 @@ public class ListNodeTest {
         second.setLeftChild(third);
         testNode.setLeftChild(second);
 
-        result = this.listNode.findKthFromTail(testNode, 4);
+        result = this.nodeUsage.findKthFromTail(testNode, 4);
         Assert.assertEquals(expected, result);
 
         expected = third;
-        result = this.listNode.findKthFromTail(testNode, 1);
+        result = this.nodeUsage.findKthFromTail(testNode, 1);
         Assert.assertEquals(expected.getData(), result.getData());
 
     }
@@ -51,7 +51,7 @@ public class ListNodeTest {
         Node testNode = null;
         Node expected = null;
 
-        Node result = this.listNode.reverseList(testNode);
+        Node result = this.nodeUsage.reverseList(testNode);
         Assert.assertEquals(expected, result);
 
         testNode = new Node(1);
@@ -61,7 +61,7 @@ public class ListNodeTest {
         testNode.setLeftChild(second);
 
         expected = third;
-        result = this.listNode.reverseList(testNode);
+        result = this.nodeUsage.reverseList(testNode);
         Assert.assertEquals(expected.getData(), result.getData());
     }
 
@@ -71,7 +71,7 @@ public class ListNodeTest {
         Node testNode2 = null;
         Node expected = null;
 
-        Node result = this.listNode.merge(testNode1, testNode2);
+        Node result = this.nodeUsage.merge(testNode1, testNode2);
         Assert.assertEquals(expected, result);
 
         testNode1 = new Node(1);
@@ -86,7 +86,7 @@ public class ListNodeTest {
         testNode2Child1.setLeftChild(testNode2Child2);
         testNode2.setLeftChild(testNode2Child1);
 
-        result = this.listNode.merge(testNode1, testNode2);
+        result = this.nodeUsage.merge(testNode1, testNode2);
         String strResult = "";
         while (result != null) {
             strResult += result.getData();
@@ -104,7 +104,7 @@ public class ListNodeTest {
         Node testNode2 = null;
         boolean expected = false;
 
-        boolean result = this.listNode.hasSubTree(testNode1, testNode2);
+        boolean result = this.nodeUsage.hasSubTree(testNode1, testNode2);
         Assert.assertEquals(expected, result);
 
         testNode1 = new Node(1);
@@ -126,7 +126,7 @@ public class ListNodeTest {
         testNode2.setRightChild(testNode25);
 
         expected = true;
-        result = this.listNode.hasSubTree(testNode1, testNode2);
+        result = this.nodeUsage.hasSubTree(testNode1, testNode2);
         Assert.assertEquals(expected, result);
     }
 
@@ -134,7 +134,7 @@ public class ListNodeTest {
     public void mirrorTest() {
         Node testNode = null;
 
-        this.listNode.mirror(testNode);
+        this.nodeUsage.mirror(testNode);
         Assert.assertEquals(null, testNode);
 
         testNode = new Node(1);
@@ -148,7 +148,7 @@ public class ListNodeTest {
         testNode.setLeftChild(testNode12);
         testNode.setRightChild(testNode13);
 
-        this.listNode.mirror(testNode);
+        this.nodeUsage.mirror(testNode);
 
         String result = this.preOrder(testNode, "");
         String expected = "13254";
@@ -179,7 +179,7 @@ public class ListNodeTest {
 
         String strResult = "";
         String expected = "1,2,3,4,5,";
-        ArrayList<Integer> result = this.listNode.printFromTopToBottom(testNode);
+        ArrayList<Integer> result = this.nodeUsage.printFromTopToBottom(testNode);
 
         Iterator<Integer> iterator = result.iterator();
         while (iterator.hasNext()) {
@@ -202,7 +202,7 @@ public class ListNodeTest {
         testNode.setLeftChild(testNode12);
         testNode.setRightChild(testNode13);
 
-        ArrayList<ArrayList<Integer>> result = this.listNode.findPath(testNode, 7);
+        ArrayList<ArrayList<Integer>> result = this.nodeUsage.findPath(testNode, 7);
         String expected = "1,2,4,";
         String strResult = "";
         Iterator<ArrayList<Integer>> iterator = result.iterator();
@@ -219,6 +219,7 @@ public class ListNodeTest {
 
     @Test
     public void convertTest() {
+        int expected = 4;
         Node testNode = null;
         testNode = new Node(1);
         Node testNode12 = new Node(2);
@@ -230,9 +231,46 @@ public class ListNodeTest {
         testNode.setLeftChild(testNode12);
         testNode.setRightChild(testNode13);
 
-        Node result = this.listNode.convert(testNode);
+        Node result = this.nodeUsage.convert(testNode);
 
-        Assert.assertEquals(4, result.getData());
+        Assert.assertEquals(expected, result.getData());
+    }
+
+    @Test
+    public void treeDepthTest() {
+        int expected = 3;
+        Node testNode = null;
+        testNode = new Node(1);
+        Node testNode12 = new Node(2);
+        Node testNode13 = new Node(3);
+        Node testNode14 = new Node(4);
+        Node testNode15 = new Node(5);
+        testNode12.setLeftChild(testNode14);
+        testNode12.setRightChild(testNode15);
+        testNode.setLeftChild(testNode12);
+        testNode.setRightChild(testNode13);
+
+        int result = this.nodeUsage.treeDepth(testNode);
+        Assert.assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void isBalancedTest() {
+        boolean expected = true;
+        Node testNode = null;
+        testNode = new Node(1);
+        Node testNode12 = new Node(2);
+        Node testNode13 = new Node(3);
+        Node testNode14 = new Node(4);
+        Node testNode15 = new Node(5);
+        testNode12.setLeftChild(testNode14);
+        testNode12.setRightChild(testNode15);
+        testNode.setLeftChild(testNode12);
+        testNode.setRightChild(testNode13);
+
+        boolean result = this.nodeUsage.isBalanced(testNode);
+        Assert.assertEquals(expected, result);
     }
 
 }

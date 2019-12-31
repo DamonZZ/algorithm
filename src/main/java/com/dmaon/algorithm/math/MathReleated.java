@@ -50,7 +50,53 @@ public class MathReleated {
     }
 
     public int inversePairs(int[] array) {
-        return 0;
+        if (array == null || array.length < 1) {
+            return 0;
+        }
+        int[] copy = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            copy[i] = array[i];
+        }
+        int count = this.inverseParisInternal(array, copy, 0, array.length - 1) % 1000000007;
+        return count;
+    }
+
+    private int inverseParisInternal(int[] array, int[] copy, int start, int end) {
+        if (start == end) {
+            return 0;
+        }
+
+        int mid = (start + end) >> 1;
+        int leftCount = this.inverseParisInternal(array, copy, start, mid);
+        int rightCount = this.inverseParisInternal(array, copy, mid + 1, end);
+
+//        System.out.println("Start=" + start + ", End=" + end + ", Mid=" + mid + ", LeftCount=" + leftCount + ", RightCount=" + rightCount);
+
+        int i = mid;
+        int j = end;
+        int count = 0;
+        int copyIndex = end;
+        while (i >= start && j > mid) {
+            if (array[i] > array[j]) {
+                count += j - mid;
+                copy[copyIndex--] = array[i--];
+                if (count >= 1000000007) {
+                    count %= 1000000007;
+                }
+            } else {
+                copy[copyIndex--] = array[j--];
+            }
+        }
+        for (; i >= start; i--) {
+            copy[copyIndex--] = array[i];
+        }
+        for (; j > mid; j--) {
+            copy[copyIndex--] = array[j];
+        }
+        for (int t = start; t <= end; t++) {
+            array[t] = copy[t];
+        }
+        return (leftCount + rightCount + count) % 1000000007;
     }
 
 }

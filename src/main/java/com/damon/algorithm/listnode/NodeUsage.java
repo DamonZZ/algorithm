@@ -1,12 +1,10 @@
 package com.damon.algorithm.listnode;
 
 import com.damon.algorithm.entity.Node;
-import com.sun.scenario.effect.Merge;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
-public class ListNode {
+public class NodeUsage {
 
     public Node findKthFromTail(Node node, int k) {
         Node result = null;
@@ -217,5 +215,34 @@ public class ListNode {
         this.convertSub(current.getRightChild());
     }
 
+    public int treeDepth(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = this.treeDepth(root.getLeftChild());
+        int right = this.treeDepth(root.getRightChild());
+        return Math.max(left, right) + 1;
+    }
 
+    private boolean isBalance = true;
+
+    public boolean isBalanced(Node root) {
+        if (root == null) {
+            return false;
+        }
+        this.getDepth(root);
+        return isBalance;
+    }
+
+    private int getDepth(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = this.getDepth(root.getLeftChild());
+        int right = this.getDepth(root.getRightChild());
+        if (Math.abs(left - right) > 1) {
+            this.isBalance = false;
+        }
+        return Math.max(left, right) + 1;
+    }
 }

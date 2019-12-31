@@ -118,5 +118,25 @@ public class ArrayTest {
         Assert.assertEquals(expected, result);
     }
 
+    @Test
+    public void getNumberOfKTest() {
+        int[] testArray = new int[]{1, 2, 3, 3, 3, 4, 5, 6, 7, 8};
+        int testK = 3;
+        int expected = 3;
+        int result = this.array.getNumberOfK(testArray, testK);
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void findNumsAppearOnceTest() {
+        int[] testArray = new int[]{2, 4, 3, 6, 3, 2, 5, 5, 8, 8};
+        int[] testNum1 = new int[]{0};
+        int[] testNum2 = new int[]{0};
+        int expected1 = 6;
+        int expected2 = 4;
+        this.array.findNumsAppearOnce(testArray, testNum1, testNum2);
+        Assert.assertEquals(expected1, testNum1[0]);
+        Assert.assertEquals(expected2, testNum2[0]);
+    }
 
 }

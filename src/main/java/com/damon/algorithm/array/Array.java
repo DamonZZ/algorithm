@@ -193,4 +193,97 @@ public class Array {
         }
         return builder.toString();
     }
+
+    public int getNumberOfK(int[] array, int k) {
+        if (array == null || array.length < 1) {
+            return 0;
+        }
+        int firtstIndex = this.getFirstK(array, k, 0, array.length - 1);
+        int lastIndex = this.getLastK(array, k, 0, array.length - 1);
+        if (firtstIndex != -1 && lastIndex != -1) {
+            return lastIndex - firtstIndex + 1;
+        }
+        return 0;
+    }
+
+    private int getFirstK(int[] array, int k, int start, int end) {
+        if (start > end) {
+            return -1;
+        }
+        int middle = (start + end) >> 1;
+        int midddledata = array[middle];
+        if (k == midddledata) {
+            if ((middle > 0 && array[middle - 1] != k) || middle == 0) {
+                return middle;
+            } else {
+                end = middle - 1;
+            }
+        } else if (midddledata > k) {
+            end = middle - 1;
+        } else {
+            start = middle + 1;
+        }
+        return this.getFirstK(array, k, start, end);
+    }
+
+    private int getLastK(int[] array, int k, int start, int end) {
+        if (start > end) {
+            return -1;
+        }
+        int middle = (start + end) >> 1;
+        int midddledata = array[middle];
+        if (k == midddledata) {
+            if ((middle < end && array[middle + 1] != k) || middle == end) {
+                return middle;
+            } else {
+                start = middle + 1;
+            }
+        } else if (midddledata > k) {
+            end = middle - 1;
+        } else {
+            start = middle + 1;
+        }
+        return this.getLastK(array, k, start, end);
+    }
+
+    public void findNumsAppearOnce(int[] array, int num1[], int num2[]) {
+        if (array == null || array.length < 1 || num1 == null || num2 == null) {
+            return;
+        }
+
+        int length = array.length;
+        if (length == 2) {
+            num1[0] = array[0];
+            num2[0] = array[1];
+            return;
+        }
+
+        int bitResult = 0;
+        for (int i = 0; i < length; i++) {
+            bitResult ^= array[i];
+        }
+
+        int index = this.findFirst1(bitResult);
+        for (int i = 0; i < length; i++) {
+            if (this.isBit1(array[i], index)) {
+                num1[0] ^= array[i];
+            } else {
+                num2[0] ^= array[i];
+            }
+        }
+
+    }
+
+    private int findFirst1(int bit) {
+        int index = 0;
+        while ((bit & 1) == 0 && index < 32) {
+            bit = bit >> 1;
+            index++;
+        }
+        return index;
+    }
+
+    private boolean isBit1(int target, int index) {
+        return ((target >> index) & 1) == 1;
+    }
 }
