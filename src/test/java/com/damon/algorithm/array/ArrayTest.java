@@ -127,6 +127,7 @@ public class ArrayTest {
         Assert.assertEquals(expected, result);
     }
 
+    // #56
     @Test
     public void findNumsAppearOnceTest() {
         int[] testArray = new int[]{2, 4, 3, 6, 3, 2, 5, 5, 8, 8};
@@ -137,6 +138,36 @@ public class ArrayTest {
         this.array.findNumsAppearOnce(testArray, testNum1, testNum2);
         Assert.assertEquals(expected1, testNum1[0]);
         Assert.assertEquals(expected2, testNum2[0]);
+    }
+
+    // #57 - 1
+    @Test
+    public void findContinuousSequenceTest() {
+        int testSum = 15;
+        int expected = 3;
+        ArrayList<ArrayList<Integer>> result = this.array.findContinuousSequence(testSum);
+        Assert.assertEquals(expected, result.size());
+    }
+
+    // #57 - 2
+    @Test
+    public void findNumbersWithSumTest() {
+        int[] testArray = new int[]{1, 2, 4, 7, 11, 15};
+        int testSum = 15;
+        int expected1 = 4;
+        int expected2 = 11;
+        ArrayList<Integer> result = this.array.findNumbersWithSum(testArray, testSum);
+        Assert.assertEquals(expected1, result.get(0).intValue());
+        Assert.assertEquals(expected2, result.get(1).intValue());
+    }
+
+    // #61
+    @Test
+    public void isContinuousTest() {
+        int[] testArray = new int[]{2, 0, 0, 4, 7};
+        boolean expected = false;
+        boolean result = this.array.isContinuous(testArray);
+        Assert.assertEquals(expected, result);
     }
 
 }

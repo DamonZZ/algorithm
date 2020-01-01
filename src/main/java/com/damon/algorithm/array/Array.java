@@ -246,6 +246,7 @@ public class Array {
         return this.getLastK(array, k, start, end);
     }
 
+    // #56
     public void findNumsAppearOnce(int[] array, int num1[], int num2[]) {
         if (array == null || array.length < 1 || num1 == null || num2 == null) {
             return;
@@ -285,5 +286,81 @@ public class Array {
 
     private boolean isBit1(int target, int index) {
         return ((target >> index) & 1) == 1;
+    }
+
+    // #57 - 2
+    public ArrayList<ArrayList<Integer>> findContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int pLow = 1;
+        int pHigh = 2;
+        while (pHigh > pLow) {
+            int tempSum = (pLow + pHigh) * (pHigh - pLow + 1) / 2;
+            if (tempSum == sum) {
+                ArrayList<Integer> arrayList = new ArrayList<>();
+                for (int i = pLow; i <= pHigh; i++) {
+                    arrayList.add(i);
+                }
+                result.add(arrayList);
+                pLow++;
+            } else if (tempSum > sum) {
+                pLow++;
+            } else {
+                pHigh++;
+            }
+        }
+        return result;
+    }
+
+    // #57 - 1
+    public ArrayList<Integer> findNumbersWithSum(int[] array, int sum) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (array == null || array.length < 1) {
+            return result;
+        }
+        int pLow = 0;
+        int pHigh = array.length - 1;
+        while (pLow < pHigh) {
+            int tempSum = array[pLow] + array[pHigh];
+            if (tempSum == sum) {
+                result.add(array[pLow]);
+                result.add(array[pHigh]);
+                return result;
+            } else if (tempSum > sum) {
+                pHigh--;
+            } else {
+                pLow++;
+            }
+        }
+        return result;
+    }
+
+    // #61
+    public boolean isContinuous(int[] numbers) {
+        if (numbers == null || numbers.length < 5) {
+            return false;
+        }
+        int[] numberCount = new int[14];
+        int max = -1;
+        int min = 14;
+        for (int i = 0; i < numbers.length; i++) {
+            numberCount[numbers[i]]++;
+            if (numbers[i] <= 0) {
+                continue;
+            }
+            if (numberCount[numbers[i]] > 1) {
+                return false;
+            }
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+
+        if (max - min < 5) {
+            return true;
+        }
+        return false;
     }
 }
