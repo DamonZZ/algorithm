@@ -35,4 +35,14 @@ public class IntegerUsageTest {
         int result = this.integerUsage.sum(testN);
         Assert.assertEquals(expected, result);
     }
+
+    @Test
+    public void addTest() {
+        int testN1 = 5;
+        int testN2 = 10;
+        int expected = 15;
+        int result = this.integerUsage.add(testN1, testN2);
+        Assert.assertEquals(expected, result);
+    }
+
 }

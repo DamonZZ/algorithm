@@ -36,4 +36,21 @@ public class StringUsageTest {
         Assert.assertEquals(expected, result);
     }
 
+    @Test
+    public void strToIntTest() {
+        String testStr = "-2147483649";
+        int expected = 0;
+        int result = this.stringUsage.strToInt(testStr);
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void matchTest() {
+        char[] testStr = new char[]{'a'};
+        char[] testPartern = new char[]{'.'};
+        boolean expected = true;
+        boolean result = this.stringUsage.match(testStr, testPartern);
+        Assert.assertEquals(expected, result);
+    }
+
 }

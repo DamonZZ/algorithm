@@ -170,4 +170,25 @@ public class ArrayTest {
         Assert.assertEquals(expected, result);
     }
 
+    // #3
+    @Test
+    public void duplicateTest() {
+        int[] testArray = new int[]{2, 3, 4, 1, 4};
+        int testLength = 4;
+        int[] duplicateArray = new int[1];
+        boolean expected = true;
+        boolean result = this.array.duplicate(testArray, testLength, duplicateArray);
+        Assert.assertEquals(expected, result);
+    }
+
+    //
+    @Test
+    public void multiplyTest() {
+        int[] testArray = new int[]{1, 2, 3, 4, 5};
+        int[] expected = new int[]{120, 60, 40, 30, 24};
+        int[] result = this.array.multiply(testArray);
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], result[i]);
+        }
+    }
 }

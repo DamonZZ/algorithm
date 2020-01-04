@@ -59,4 +59,73 @@ public class StringUsage {
         return sb.toString();
     }
 
+    // #67
+    public int strToInt(String str) {
+        if (str == null || str.length() < 1) {
+            return 0;
+        }
+        int n = str.length();
+        int flag = 1;
+        int i = 0;
+        long result = 0;
+        if (str.charAt(i) == '-') {
+            flag = -1;
+        }
+        if (str.charAt(i) == '-' || str.charAt(i) == '+') {
+            i++;
+        }
+
+        for (; i < n; i++) {
+            char number = str.charAt(i);
+            if (number >= '0' && number <= '9') {
+                if (((flag > 0) && (result > Integer.MAX_VALUE)) || ((flag < 0) && (-result < Integer.MIN_VALUE))) {
+                    return 0;
+                }
+                result = (result << 1) + (result << 3) + (number - '0');
+            } else {
+                return 0;
+            }
+        }
+        if (((flag > 0) && (result > Integer.MAX_VALUE)) || ((flag < 0) && (-result < Integer.MIN_VALUE))) {
+            return 0;
+        }
+        return (int) result * flag;
+    }
+
+    // #19
+    public boolean match(char[] str, char[] pattern) {
+        if (str == null || pattern == null) {
+            return false;
+        }
+
+        int strIndex = 0;
+        int patternIndex = 0;
+
+        return this.matchCore(str, pattern, strIndex, patternIndex);
+    }
+
+    private boolean matchCore(char[] str, char[] pattern, int strIndex, int patternIndex) {
+
+        if (strIndex == str.length && patternIndex == pattern.length) {
+            return true;
+        }
+
+        if (strIndex != str.length && patternIndex == pattern.length) {
+            return false;
+        }
+
+        if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*') {
+            if ((strIndex != str.length && str[strIndex] == pattern[patternIndex]) || (strIndex != str.length && pattern[patternIndex] == '.')) {
+                return this.matchCore(str, pattern, strIndex, patternIndex + 2) || this.matchCore(str, pattern, strIndex + 1, patternIndex);
+            } else {
+                return this.matchCore(str, pattern, strIndex, patternIndex + 2);
+            }
+        }
+
+        if ((strIndex != str.length && str[strIndex] == pattern[patternIndex]) || (strIndex != str.length && pattern[patternIndex] == '.')) {
+            return this.matchCore(str, pattern, strIndex + 1, patternIndex + 1);
+        }
+
+        return false;
+    }
 }

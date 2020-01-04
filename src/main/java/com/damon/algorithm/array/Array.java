@@ -363,4 +363,43 @@ public class Array {
         }
         return false;
     }
+
+    // #3
+    public boolean duplicate(int numbers[], int length, int[] duplication) {
+        if (numbers == null || length <= 0) {
+            return false;
+        }
+        for (int i = 0; i < length; i++) {
+            while (numbers[i] != i) {
+                if (numbers[i] == numbers[numbers[i]]) {
+                    duplication[0] = numbers[i];
+                    return true;
+                }
+                int temp = numbers[i];
+                numbers[i] = numbers[temp];
+                numbers[temp] = temp;
+            }
+        }
+        return false;
+    }
+
+    //
+    public int[] multiply(int[] A) {
+        if (A == null || A.length < 1) {
+            return null;
+        }
+        int length = A.length;
+        int[] b = new int[length];
+        b[0] = 1;
+        for (int i = 1; i < length; i++) {
+            b[i] = b[i - 1] * A[i - 1];
+        }
+
+        int temp = 1;
+        for (int j = length - 2; j >= 0; j--) {
+            temp *= A[j + 1];
+            b[j] *= temp;
+        }
+        return b;
+    }
 }
