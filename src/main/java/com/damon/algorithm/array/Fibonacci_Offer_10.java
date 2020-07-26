@@ -1,6 +1,6 @@
 package com.damon.algorithm.array;
 
-public class Fibonacci {
+public class Fibonacci_Offer_10 {
 
     // n<=39
     public int get(int n) {

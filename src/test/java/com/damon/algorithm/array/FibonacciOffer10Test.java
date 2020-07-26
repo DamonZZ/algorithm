@@ -5,18 +5,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class FibonacciTest {
+public class FibonacciOffer10Test {
 
-    private Fibonacci fibonacci;
+    private Fibonacci_Offer_10 fibonacciOffer10;
 
     @Before
     public void beofore() {
-        this.fibonacci = new Fibonacci();
+        this.fibonacciOffer10 = new Fibonacci_Offer_10();
     }
 
     @After
     public void after() {
-        this.fibonacci = null;
+        this.fibonacciOffer10 = null;
     }
 
     @Test
@@ -24,22 +24,22 @@ public class FibonacciTest {
 
         int n = 0;
         int expected = 0;
-        int actual = this.fibonacci.get(n);
+        int actual = this.fibonacciOffer10.get(n);
         Assert.assertEquals(expected, actual);
 
         n = 1;
         expected = 1;
-        actual = this.fibonacci.get(n);
+        actual = this.fibonacciOffer10.get(n);
         Assert.assertEquals(expected, actual);
 
         n = 7;
         expected = 13;
-        actual = this.fibonacci.get(n);
+        actual = this.fibonacciOffer10.get(n);
         Assert.assertEquals(expected, actual);
 
         n = 39;
         expected = 13;
-        actual = this.fibonacci.get(n);
+        actual = this.fibonacciOffer10.get(n);
         System.out.println(actual);
 
     }
