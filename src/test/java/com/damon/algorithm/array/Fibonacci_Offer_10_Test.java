@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class FibonacciOffer10Test {
+public class Fibonacci_Offer_10_Test {
 
     private Fibonacci_Offer_10 fibonacciOffer10;
 
