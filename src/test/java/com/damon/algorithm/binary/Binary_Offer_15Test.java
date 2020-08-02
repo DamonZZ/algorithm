@@ -5,18 +5,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IntBinaryTest {
+public class Binary_Offer_15Test {
 
-    private IntBinary intBinary;
+    private Binary_Offer_15 binaryOffer15;
 
     @Before
     public void before(){
-        this.intBinary = new IntBinary();
+        this.binaryOffer15 = new Binary_Offer_15();
     }
 
     @After
     public void after(){
-        this.intBinary = null;
+        this.binaryOffer15 = null;
     }
 
     @Test
@@ -24,12 +24,12 @@ public class IntBinaryTest {
         int testInt = 3;
 
         int expected = 2;
-        int actual = this.intBinary.getOneNumbersMethod1(testInt);
+        int actual = this.binaryOffer15.getOneNumbersMethod1(testInt);
         Assert.assertEquals(expected,actual);
 
 //        testInt = -3;
 //        expected = 3;
-//        actual = this.intBinary.getOneNumbersMethod1(testInt);
+//        actual = this.binaryOffer15.getOneNumbersMethod1(testInt);
 //        Assert.assertEquals(expected,actual);
     }
 
@@ -38,12 +38,12 @@ public class IntBinaryTest {
         int testInt = 3;
 
         int expected = 2;
-        int actual = this.intBinary.getOneNumbersMethod2(testInt);
+        int actual = this.binaryOffer15.getOneNumbersMethod2(testInt);
         Assert.assertEquals(expected,actual);
 
 //        testInt = -3;
 //        expected = 3;
-//        actual = this.intBinary.getOneNumbersMethod2(testInt);
+//        actual = this.binaryOffer15.getOneNumbersMethod2(testInt);
 //        Assert.assertEquals(expected,actual);
     }
 }

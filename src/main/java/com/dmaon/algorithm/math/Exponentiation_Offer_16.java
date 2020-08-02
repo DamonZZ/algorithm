@@ -1,6 +1,6 @@
 package com.dmaon.algorithm.math;
 
-public class Exponentiation {
+public class Exponentiation_Offer_16 {
 
     public double power(double base, int exponent) {
         double result = 0.0;
@@ -37,4 +37,19 @@ public class Exponentiation {
         return result;
     }
 
+    public double myPow(double x, int n) {
+        if (x == 0) return 0;
+        long b = n;
+        double res = 1.0;
+        if (b < 0) {
+            x = 1 / x;
+            b = -b;
+        }
+        while (b > 0) {
+            if ((b & 1) == 1) res *= x;
+            x *= x;
+            b >>= 1;
+        }
+        return res;
+    }
 }

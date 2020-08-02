@@ -1,6 +1,6 @@
 package com.damon.algorithm.binary;
 
-public class IntBinary {
+public class Binary_Offer_15 {
 
     public int getOneNumbersMethod1(int target) {
         int counts = 0;
