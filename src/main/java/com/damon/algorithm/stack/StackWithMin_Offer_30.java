@@ -2,7 +2,7 @@ package com.damon.algorithm.stack;
 
 import java.util.Stack;
 
-public class StackWithMin {
+public class StackWithMin_Offer_30 {
 
     private Stack<Integer> stack1 = new Stack<>();
     private Stack<Integer> stack2 = new Stack<>();
