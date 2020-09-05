@@ -48,4 +48,28 @@ public class LevelOrder_Offer_32 {
         return list;
     }
 
+    public List<List<Integer>> levelOrder3(final TreeNode root) {
+        if (root == null) return new ArrayList<List<Integer>>();
+        Queue<TreeNode> queue = new LinkedList() {{
+            add(root);
+        }};
+        List<List<Integer>> list = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            LinkedList<Integer> tmp = new LinkedList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                if (list.size() % 2 == 0) {
+                    tmp.addLast(treeNode.val);
+                } else {
+                    tmp.addFirst(treeNode.val);
+                }
+                if (treeNode.left != null) queue.add(treeNode.left);
+                if (treeNode.right != null) queue.add(treeNode.right);
+            }
+            list.add(tmp);
+        }
+        return list;
+    }
+
 }
