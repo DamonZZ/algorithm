@@ -6,6 +6,19 @@ public class Integer_Search_Offer_53 {
         return this.searchDichotomy(nums, target) - this.searchDichotomy(nums, target - 1);
     }
 
+    public int missingNumber(int[] nums) {
+        int i = 0, j = nums.length - 1;
+        while (i <= j) {
+            int m = (i + j) / 2;
+            if (nums[m] == m) {
+                i = m + 1;
+            } else {
+                j = m - 1;
+            }
+        }
+        return i;
+    }
+
     private int searchDichotomy(int[] nums, int target) {
         int i = 0, j = nums.length - 1;
         while (i <= j) {
