@@ -21,4 +21,11 @@ public class TwoSum_Offer_57_Test {
         Assert.assertTrue(res.length == 2);
     }
 
+    @Test
+    public void findContinuousSequenceTest() {
+        int testTarget = 9;
+        int[][] res = this.twoSum_offer_57.findContinuousSequence(testTarget);
+        Assert.assertTrue(res.length == 2);
+    }
+
 }
