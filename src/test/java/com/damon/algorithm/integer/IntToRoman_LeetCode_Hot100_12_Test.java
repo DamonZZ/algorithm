@@ -1,4 +1,4 @@
-package com.damon.algorithm.string;
+package com.damon.algorithm.integer;
 
 import com.damon.algorithm.integer.IntToRoman_LeetCode_Hot100_12;
 import org.junit.Assert;
