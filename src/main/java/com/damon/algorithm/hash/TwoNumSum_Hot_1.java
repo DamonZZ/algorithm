@@ -3,7 +3,7 @@ package com.damon.algorithm.hash;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TwoNumSum {
+public class TwoNumSum_Hot_1 {
 
     public int[] twoSum(int[] nums, int target) {
         if (nums == null || nums.length == 0) throw new IllegalArgumentException("Illegal input nums");

@@ -6,13 +6,13 @@ import org.junit.Test;
 
 public class TwoNumSumTest {
 
-    private TwoNumSum twoNumSum;
+    private TwoNumSum_Hot_1 twoNumSum;
 
     private int[] testArray;
 
     @Before
     public void before() {
-        this.twoNumSum = new TwoNumSum();
+        this.twoNumSum = new TwoNumSum_Hot_1();
         this.testArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
     }
 
