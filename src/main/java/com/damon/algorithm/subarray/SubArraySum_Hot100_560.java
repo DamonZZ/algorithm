@@ -1,0 +1,23 @@
+package com.damon.algorithm.subarray;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SubArraySum_Hot100_560 {
+
+    public int subarraySum(int[] nums, int k) {
+        int ans = 0, sum = 0;
+        Map<Integer, Integer> map = new HashMap();
+        map.put(0, 1);
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (map.containsKey(sum - k)) {
+                // 考虑0的情况？
+                ans += map.get(sum - k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return ans;
+    }
+
+}
