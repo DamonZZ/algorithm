@@ -1,4 +1,4 @@
-package com.damon.algorithm.array;
+package com.damon.algorithm.matrix;
 
 public class SetZeroes_Hot100_73 {
 

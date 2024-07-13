@@ -1,17 +1,16 @@
-package com.damon.algorithm.tree;
+package com.damon.algorithm.matrix;
 
-import com.damon.algorithm.array.SpiralOrder_Offer_29;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SpiralOrder_Offer_29_Test {
+public class SpiralOrder_Offer_29_Hot100_54_Test {
 
-    private SpiralOrder_Offer_29 spiralOrder_offer_29;
+    private SpiralOrder_Offer_29_Hot100_54 spiralOrder_offer_29;
 
     @Before
     public void before() {
-        this.spiralOrder_offer_29 = new SpiralOrder_Offer_29();
+        this.spiralOrder_offer_29 = new SpiralOrder_Offer_29_Hot100_54();
     }
 
     @Test

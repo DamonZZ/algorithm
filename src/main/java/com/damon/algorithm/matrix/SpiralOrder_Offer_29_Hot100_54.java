@@ -1,6 +1,6 @@
-package com.damon.algorithm.array;
+package com.damon.algorithm.matrix;
 
-public class SpiralOrder_Offer_29 {
+public class SpiralOrder_Offer_29_Hot100_54 {
 
     public int[] spiralOrder(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return new int[0];
