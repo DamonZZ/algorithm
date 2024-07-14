@@ -2,7 +2,7 @@ package com.damon.algorithm.listnode;
 
 import com.damon.algorithm.entity.ListNode;
 
-public class IntersectionNode_Offer_52 {
+public class IntersectionNode_Offer_52_Hot100_160 {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;

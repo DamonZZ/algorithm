@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IntersectionNode_Offer_52_Test {
+public class IntersectionNode_Offer_52_Hot100_160_Test {
 
-    private IntersectionNode_Offer_52 intersectionNode_offer_52;
+    private IntersectionNode_Offer_52_Hot100_160 intersectionNode_offer_52;
 
     @Before
     public void before() {
-        this.intersectionNode_offer_52 = new IntersectionNode_Offer_52();
+        this.intersectionNode_offer_52 = new IntersectionNode_Offer_52_Hot100_160();
     }
 
     @Test
