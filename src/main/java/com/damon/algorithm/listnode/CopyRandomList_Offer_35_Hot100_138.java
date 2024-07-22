@@ -1,6 +1,12 @@
 package com.damon.algorithm.listnode;
 
-public class CopyRandomList_Offer_35 {
+import java.util.HashMap;
+import java.util.Map;
+
+public class CopyRandomList_Offer_35_Hot100_138 {
+
+
+    Map<Node, Node> cachedNode = new HashMap();
 
     public static class Node {
         int val;
@@ -42,6 +48,20 @@ public class CopyRandomList_Offer_35 {
             }
         }
         return copyHead;
+    }
+
+    public Node copyRandomList2(Node head) {
+        if (head == null)
+            return head;
+
+        if (!cachedNode.containsKey(head)) {
+            Node node = new Node(head.val);
+            cachedNode.put(head, node);
+            node.next = copyRandomList(head.next);
+            node.random = copyRandomList(head.random);
+        }
+
+        return cachedNode.get(head);
     }
 
 }
