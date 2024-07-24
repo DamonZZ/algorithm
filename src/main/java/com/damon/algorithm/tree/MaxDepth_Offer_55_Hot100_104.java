@@ -5,7 +5,7 @@ import com.damon.algorithm.entity.TreeNode;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MaxDepth_Offer_55 {
+public class MaxDepth_Offer_55_Hot100_104 {
 
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;

@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MaxDepth_Offer_55_Test {
+public class MaxDepth_Offer_55_Hot100_104_Test {
 
-    private MaxDepth_Offer_55 maxDepth_offer_55;
+    private MaxDepth_Offer_55_Hot100_104 maxDepth_offer_55;
 
     @Before
     public void before() {
-        this.maxDepth_offer_55 = new MaxDepth_Offer_55();
+        this.maxDepth_offer_55 = new MaxDepth_Offer_55_Hot100_104();
     }
 
     @Test
