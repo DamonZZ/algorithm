@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MirrorTree_Offer_27_Test {
+public class MirrorTree_Offer_27_Hot100_226_Test {
 
-    private MirrorTree_Offer_27 mirrorTree_offer_27;
+    private MirrorTree_Offer_27_Hot100_226 mirrorTree_offer_27;
 
     @Before
     public void before() {
-        this.mirrorTree_offer_27 = new MirrorTree_Offer_27();
+        this.mirrorTree_offer_27 = new MirrorTree_Offer_27_Hot100_226();
     }
 
     @Test

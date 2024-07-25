@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IsSymmetric_Offer_28_Test {
+public class IsSymmetric_Offer_28_Hot100_101_Test {
 
-    private IsSymmetric_Offer_28 isSymmetric_offer_28;
+    private IsSymmetric_Offer_28_Hot100_101 isSymmetric_offer_28;
 
     @Before
     public void before() {
-        this.isSymmetric_offer_28 = new IsSymmetric_Offer_28();
+        this.isSymmetric_offer_28 = new IsSymmetric_Offer_28_Hot100_101();
     }
 
     @Test
