@@ -15,7 +15,7 @@ public class DiameterOfBinaryTree_Hot100_Test {
     }
 
     @Test
-    public void inorderTraversalTest() {
+    public void diameterOfBinaryTreeTest() {
         TreeNode a = new TreeNode(1);
         TreeNode a1 = new TreeNode(2);
         TreeNode a2 = new TreeNode(3);
