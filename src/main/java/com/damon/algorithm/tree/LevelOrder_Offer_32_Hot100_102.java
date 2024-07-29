@@ -1,4 +1,4 @@
-package com.damon.algorithm.stack;
+package com.damon.algorithm.tree;
 
 import com.damon.algorithm.entity.TreeNode;
 
@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class LevelOrder_Offer_32 {
+public class LevelOrder_Offer_32_Hot100_102 {
 
     public int[] levelOrder(final TreeNode root) {
         if (root == null) return new int[0];

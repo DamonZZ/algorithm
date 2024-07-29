@@ -1,21 +1,22 @@
-package com.damon.algorithm.stack;
+package com.damon.algorithm.tree;
 
 import com.damon.algorithm.entity.TreeNode;
+import com.damon.algorithm.tree.LevelOrder_Offer_32_Hot100_102;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-public class LevelOrder_Offer_32_Test {
+public class LevelOrder_Offer_32_Hot100_102_Test {
 
-    private LevelOrder_Offer_32 levelOrder_offer_32;
+    private LevelOrder_Offer_32_Hot100_102 levelOrder_offer_32;
 
     private TreeNode testNode;
 
     @Before
     public void before() {
-        this.levelOrder_offer_32 = new LevelOrder_Offer_32();
+        this.levelOrder_offer_32 = new LevelOrder_Offer_32_Hot100_102();
         this.testNode = new TreeNode(0);
         TreeNode a1 = new TreeNode(1);
         TreeNode a2 = new TreeNode(2);
