@@ -29,7 +29,7 @@ public class RightSideView_Hot100_199_Test {
         a1.left = a2;
         a1.right = null;
 
-        List result = this.rightSideView_hot100_199.rightSideView(a);
+        List result = this.rightSideView_hot100_199.rightSideViewDsf(a);
         Assert.assertEquals(3, result.size());
     }
 
