@@ -7,13 +7,13 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class PathSum_Offer_34_Test {
+public class PathSum_Offer_34_Hot100_434_Test {
 
-    private PathSum_Offer_34 pathSum_offer_34;
+    private PathSum_Offer_34_Hot100_434 pathSum_offer_34;
 
     @Before
     public void before() {
-        this.pathSum_offer_34 = new PathSum_Offer_34();
+        this.pathSum_offer_34 = new PathSum_Offer_34_Hot100_434();
     }
 
     @Test
@@ -28,8 +28,13 @@ public class PathSum_Offer_34_Test {
         a1.left = a3;
         a1.right = a4;
 
+        TreeNode b = a;
+
         List<List<Integer>> res = this.pathSum_offer_34.pathSum(a, 4);
         Assert.assertEquals(1, res.size());
+
+        int ans = this.pathSum_offer_34.pathSum2(b, 4);
+        Assert.assertEquals(3, ans);
     }
 
 }
