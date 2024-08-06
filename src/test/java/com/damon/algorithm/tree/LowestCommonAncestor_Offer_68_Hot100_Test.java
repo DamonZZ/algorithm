@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LowestCommonAncestor_Offer_68_Test {
+public class LowestCommonAncestor_Offer_68_Hot100_Test {
 
-    private LowestCommonAncestor_Offer_68 lowestCommonAncestor_offer_68;
+    private LowestCommonAncestor_Offer_68_Hot100_236 lowestCommonAncestor_offer_68;
 
     @Before
     public void before() {
-        this.lowestCommonAncestor_offer_68 = new LowestCommonAncestor_Offer_68();
+        this.lowestCommonAncestor_offer_68 = new LowestCommonAncestor_Offer_68_Hot100_236();
     }
 
     @Test
@@ -30,6 +30,8 @@ public class LowestCommonAncestor_Offer_68_Test {
         TreeNode res = this.lowestCommonAncestor_offer_68.lowestCommonAncestor(a, a3, a4);
         Assert.assertTrue(res.val == 2);
         res = this.lowestCommonAncestor_offer_68.lowestCommonAncestor2(a, a3, a4);
+        Assert.assertTrue(res.val == 2);
+        res = this.lowestCommonAncestor_offer_68.lowestCommonAncestor3(a, a3, a4);
         Assert.assertTrue(res.val == 2);
     }
 
