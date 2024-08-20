@@ -17,7 +17,7 @@ public class CombinationSum_Hot100_39_Test {
     }
 
     @Test
-    public void subsetsTest() {
+    public void combinationSumTest() {
 
         int[] nums = new int[]{2,3,6,7};
         List<List<Integer>> ans= this.combinationSum_hot100_39.combinationSum(nums,7);
