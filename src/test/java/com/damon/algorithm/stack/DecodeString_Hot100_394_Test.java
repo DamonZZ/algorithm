@@ -15,7 +15,7 @@ public class DecodeString_Hot100_394_Test {
 
 
     @Test
-    public void decodeString_Hot100Test() {
+    public void decodeStringTest() {
         Assert.assertEquals("aaabcbc",this.decodeString_hot100_394.decodeString("3[a]2[bc]"));
     }
 
