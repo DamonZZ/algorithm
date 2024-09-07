@@ -15,7 +15,7 @@ public class MaxProfit_Hot100_121_Test {
 
 
     @Test
-    public void findKthLargestTest() {
+    public void maxProfitTest() {
         int[] nums = new int[]{7, 1, 5, 3, 6, 4};
         int ans = this.maxProfit_hot100_121.maxProfit(nums);
         Assert.assertEquals(5, ans);
