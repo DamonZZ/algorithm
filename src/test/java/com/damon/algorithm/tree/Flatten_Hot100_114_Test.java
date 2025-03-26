@@ -26,9 +26,8 @@ public class Flatten_Hot100_114_Test {
         a1.left = a2;
         a1.right = null;
 
-        TreeNode ans = a;
         this.flatten_hot100_114.flatten(a);
-        Assert.assertEquals(3, a.right.right.right.val);
+        Assert.assertEquals(3, a.right.right.val);
     }
 
 }

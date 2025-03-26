@@ -1,13 +1,11 @@
 package com.damon.algorithm.string;
 
-import org.omg.CORBA.StringHolder;
-
 public class ReplaceSpace_Offer_05 {
 
     // double pointer
     public String replaceSpace(String s) {
         if (s == null) return null;
-        String result = "";
+        String result;
         char[] array = s.toCharArray();
         int length = s.length();
         int newLength = length;
